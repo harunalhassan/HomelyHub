@@ -31,7 +31,7 @@ import Accomodation from "./Components/Accomodation/Accomodation";
 
 
 function App() {
-  const stripePromise=loadStripe("pk_test_51P727ySFlU1nCUy3gLA0hkQTn4CIfATWSgxIFoV2cl7MxuB74ktwO2aH8YU1bRFtO9OCKRmAegq3BuxQLQGDojhV00QD9IOalv")
+  const stripePromise=loadStriped("pk_test_51P727ySFlU1nCUy3gLA0hkQTn4CIfATWSgxIFoV2cl7MxuB74ktwO2aH8YU1bRFtO9OCKRmAegq3BuxQLQGDojhV00QD9IOalv")
   const dispatch = useDispatch();
   const { errors } = useSelector((state) => state.user);
   useEffect(() => {
