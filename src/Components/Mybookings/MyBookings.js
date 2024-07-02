@@ -3,7 +3,7 @@ import "../../CSS/MyBookings.css";
 import ProgressSteps from "../ProgressSteps"
 import { useNavigate } from "react-router-dom";
 import { useSelector ,useDispatch} from "react-redux";
-import { fetchUserbookings,fetchBookingDetails } from "../../Store/Booking/booking-action";
+import { fetchUserbookings,fetchBookingDetails } from "../../Store/Booking/booking-action";length
 import LoadingSpinner from "../LoadingSpinner"
 const MyBookings = () => {
   const dispatch =useDispatch();
@@ -16,7 +16,7 @@ const MyBookings = () => {
     dispatch(fetchBookingDetails(bookingId))
     navigate(`/user/booking/${bookingId}`) 
   }
-  if (bookings.length === 0 && !loading){
+  if (bookings?.length === 0 && !loading){
     return <div>My Bookings are not available...</div>;
   }
   return (
@@ -25,7 +25,7 @@ const MyBookings = () => {
       <div className="wow">
         {loading && <LoadingSpinner />}
         {!loading &&
-          bookings.length > 0 &&
+          bookings?.length > 0 &&
           bookings.map((booking) => (
             <div
               onClick={() => handleBookingClick(booking._id)}
@@ -38,7 +38,7 @@ const MyBookings = () => {
                       className="booking-img"
                       src={
                         booking.property.images &&
-                        booking.property.images.length > 0
+                        booking.property.images?.length > 0
                           ? booking.property.images[0].url
                           : undefined
                       }
