@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 // outlet is used to render the content of nested routes
 import { Outlet } from 'react-router-dom';
