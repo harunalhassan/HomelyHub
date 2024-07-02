@@ -61,7 +61,7 @@ const PropertyList = () => {
   return (
 
     <>
-            {properties.length ===0 ?(
+            {properties.length() ===0 ?(
         <p className="not_found">"property not found....."</p>
     ):(
         <div  className="propertylist">
