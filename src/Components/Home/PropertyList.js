@@ -96,7 +96,7 @@ const PropertyList = () => {
             {/* next button */}
             <button className='"next_btn' onClick={()=>setCurrentPage((prev)=>({page:prev.page+1}))}
                 /* //disable the previou button if you are in the first page */
-                disabled={properties.length<12 || currentPage.page===lastpage}  
+                disabled={properties.length()<12 || currentPage.page===lastpage}  
                 >
 
                 <span class="material-symbols-outlined">arrow_forward_ios</span>
