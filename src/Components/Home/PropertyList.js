@@ -61,7 +61,7 @@ const PropertyList = () => {
   return (
 
     <>
-            {properties.length() ===0 ?(
+            {properties.length ===0 ?(
         <p className="not_found">"property not found....."</p>
     ):(
         <div  className="propertylist">
@@ -72,7 +72,7 @@ const PropertyList = () => {
                 id={property._id}
                 image= {property.images[0].url}
                 name={property.propertyName}
-                address={`${property.address.city}, ${property.address.state}, ${property.address. pincode}`}
+                address={`${property.address.city}, ${property.address.state}, ${property.address.pincode}`}
                 price={property.price}
             />
         ))
@@ -96,7 +96,7 @@ const PropertyList = () => {
             {/* next button */}
             <button className='"next_btn' onClick={()=>setCurrentPage((prev)=>({page:prev.page+1}))}
                 /* //disable the previou button if you are in the first page */
-                disabled={properties.length()<12 || currentPage.page===lastpage}  
+                disabled={properties.length < 12 || currentPage.page===lastpage}  
                 >
 
                 <span class="material-symbols-outlined">arrow_forward_ios</span>
