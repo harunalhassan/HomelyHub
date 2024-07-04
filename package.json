@@ -47,5 +47,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://homely-hub-seven.vercel.app/"
+  "proxy": "https://homely-hub-api.vercel.app/"
 }
