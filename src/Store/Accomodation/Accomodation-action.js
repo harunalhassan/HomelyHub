@@ -16,7 +16,7 @@ export const createAccomodation =(accomodationData)=>async(dispatch)=>{
 export const getAllAccomodation =( )=>async(dispatch)=>{
     try{
         dispatch(accomodationActions.getAccomodationRequest());
-        const {data}=await axios.get("/api/v1/rent/user/myAccommodation");
+        const {data}=await axios.get("https://homely-hub-api.vercel.app/user/myAccommodation");
         const accom = data.data;
         dispatch(accomodationActions.getAccomodation(accom));
 

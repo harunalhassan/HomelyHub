@@ -7,7 +7,7 @@ export const getAllProperties= ( ) => async (dispatch, getState) => {
         dispatch(propertyAction.getRequest());
         const { searchParams} =getState().properties;
 
-        const response= await axios.get(`https://homely-hub-api.vercel.app/`,{
+        const response= await axios.get(`https://homely-hub-api.vercel.app/rent/listing`,{
             params:{...searchParams},
         })
 

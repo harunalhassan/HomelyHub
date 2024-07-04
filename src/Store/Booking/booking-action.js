@@ -21,7 +21,7 @@ console.error("Error creating booking:", error);
 
 export const fetchBookingDetails = (bookingId)=>async (dispatch)=>{
     try{
-        const response =await axios.get(`/api/v1/rent/user/booking/${bookingId}`);
+        const response =await axios.get(`https://homely-hub-api.vercel.app/user/booking/${bookingId}`);
         dispatch(setBookingDetails(response.data.data))
     }
     catch(error){
@@ -30,7 +30,7 @@ export const fetchBookingDetails = (bookingId)=>async (dispatch)=>{
 }
 export const fetchUserbookings =( )=>async(dispatch)=>{
     try{
-        const response =await axios.get("/api/v1/rent/user/booking")
+        const response =await axios.get("https://homely-hub-api.vercel.app/user/booking")
         dispatch(setBookings (response.data.data.bookings)  )
     }catch(error){
         console.error("Error fetching bookings:",error)
