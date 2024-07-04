@@ -18,7 +18,7 @@ dispatch(userActions.getError(error.response.data.message));
 export const getLogIn  =  (user)=>async (dispatch)=>{
     try {
         dispatch(userActions.getLoginRequest());
-        const { data } = await axios.post("/api/v1/rent/user/login", user);
+        const { data } = await axios.post("/https://homely-hub-api.vercel.app/v1/rent/user/login", user);
         dispatch(userActions.getLoginDetails(data.user));
         } catch(error) {
         dispatch(userActions.getError(error.response.data.message));
@@ -31,7 +31,7 @@ export const getLogIn  =  (user)=>async (dispatch)=>{
         export const currentUser = () => async (dispatch) => {
         try {
         dispatch(userActions.getCurrentUserRequest());
-        const { data } = await axios.get("/api/v1/rent/user/me");
+        const { data } = await axios.get("/https://homely-hub-api.vercel.app/v1/rent/user/me");
         dispatch(userActions.getCurrentUser(data.user));
         
         } catch (error) {
@@ -43,7 +43,7 @@ export const getLogIn  =  (user)=>async (dispatch)=>{
     export const updateUser = (updateUser) => async (dispatch) => {
         try {
         dispatch(userActions.getUpdateUserRequest());
-        await axios.patch("/api/v1/rent/user/updateMe",updateUser);
+        await axios.patch("/https://homely-hub-api.vercel.app/v1/rent/user/updateMe",updateUser);
         const { data } = await axios.get("/api/v1/rent/user/me");
         dispatch(userActions.getCurrentUser(data.user));
         
@@ -55,7 +55,7 @@ export const getLogIn  =  (user)=>async (dispatch)=>{
     // to handle forgot password
     export const forgotPassword = (email) => async (dispatch) => {
         try {
-        await axios.post("/api/v1/rent/user/forgotPassword", { email });
+        await axios.post("/https://homely-hub-api.vercel.app/v1/rent/user/forgotPassword", { email });
         } catch (error) {
         dispatch(userActions.getError(error.response.data.message));
         }
@@ -64,7 +64,7 @@ export const getLogIn  =  (user)=>async (dispatch)=>{
 
      export const resetPassword = (repassword, token) => async(dispatch) => {
         try{
-            await axios.patch(`/api/v1/rent/user/resetPassword/${token}`, repassword);
+            await axios.patch(`/https://homely-hub-api.vercel.app/v1/rent/user/resetPassword/${token}`, repassword);
         }catch(error) {
     dispatch(userActions.getError(error.response.data.message));
     }
@@ -74,7 +74,7 @@ export const getLogIn  =  (user)=>async (dispatch)=>{
     export const updatePassword = (passwords)=> async(dispatch) =>{
     try{
     dispatch(userActions.getPasswordRequest());
-    await axios.patch("/api/v1/rent/user/updateMyPassword", passwords);
+    await axios.patch("/https://homely-hub-api.vercel.app/v1/rent/user/updateMyPassword", passwords);
     dispatch (userActions.getPasswordSuccess(true))
     }catch(error){
         dispatch(userActions.getError(error.response.data.message))
@@ -84,7 +84,7 @@ export const getLogIn  =  (user)=>async (dispatch)=>{
 //user Logout
 export const Logout =()=>async(dispatch)=>{
     try{
-        await axios.get("/api/v1/rent/user/logout");
+        await axios.get("/https://homely-hub-api.vercel.app/v1/rent/user/logout");
         dispatch(userActions.getLogout(null));
     }catch(error){
         dispatch(userActions.getError(error));
