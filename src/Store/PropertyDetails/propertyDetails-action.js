@@ -6,7 +6,7 @@ export const getPropertyDetails=(id) =>async(dispatch)=>{
     try{
         dispatch(propertyDetailsAction.getListRequest())
 
-        const response= await axios(`/api/v1//rent/listing/${id}`);  //
+        const response= await axios(`https://homely-d83cufdny-harunalhassans-projects.vercel.app/`);  //
         if (!response){
             throw new Error ("Could not fetch any propert details")
         }
