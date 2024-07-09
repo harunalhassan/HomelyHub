@@ -27,7 +27,7 @@ export const processPayment = ({
     const cardNumberElement = elements.getElement(CardNumberElement);
     try {
       const response = await axios.post(
-        "https://homely-hub-api.vercel.app/user/checkout-session",
+        "/api/v1/rent/user/checkout-session",
         {
           amount: totalAmount,
           currency: "inr",

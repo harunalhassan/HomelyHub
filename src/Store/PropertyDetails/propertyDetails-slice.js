@@ -1,26 +1,27 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const propertyDetailsSlice=createSlice({
-    name:"propertyDetails",
-    initialState:{
-        propertydetails:[],
-        loading: false,
-        error:null,
+const propertyDetailsSlice = createSlice({
+  name: "propertyDetails",
+  initialState: {
+    propertydetails: [],
+    loading: false,
+    error: null,
+  },
+  reducers: {
+    getListRequest(state) {
+      state.loading = true;
     },
-    reducers:{
-        getListRequest(state){
-            state.loading=true;
-        },
-        //update property in the state after successfullly fetching them
-        getPropertyDetails(state,action){
-            state.propertydetails=action.payload;
-            state.loading=false;
-        },
-        getErrors(state,action){
-            state.error=action.payload;
-            state.loading=false;
-        },
+    //update propertydetails in the state after successfully fetchig them
+    getPropertyDetails(state, action) {
+      state.propertydetails = action.payload;
+      state.loading = false;
     },
-})
-export const propertyDetailsAction =propertyDetailsSlice.actions;
+    getErrors(state, action) {
+      state.error = action.payload;
+      state.loading = false;
+    },
+  },
+});
+export const propertyDetailsAction = propertyDetailsSlice.actions;
+
 export default propertyDetailsSlice;

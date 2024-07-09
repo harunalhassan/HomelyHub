@@ -14,7 +14,7 @@ const initialState = {
     },
     setBookings: (state, action) => {
     state.bookings = action.payload;
-    state.loading = false;
+    state. loading = false;
     
     },
     addBooking:(state,action)=>{
