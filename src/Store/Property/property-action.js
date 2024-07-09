@@ -6,7 +6,7 @@ export const getAllProperties = () => async(dispatch,getState)=>{
     try{
         dispatch(propertyAction.getRequest());
         const {searchParams} = getState().properties;
-        const response = await axios.get('/api/v1/rent/listing', { 
+        const response = await axios.get('https://homely-hub-api.vercel.app/api/v1/rent/listing', { 
             params: { ...searchParams },
             });
             if (!response) {
