@@ -4,7 +4,7 @@ import { propertyDetailsAction } from "./propertyDetails-slice";
 export const getPropertyDetails = (id) => async (dispatch) => {
   try {
     dispatch(propertyDetailsAction.getListRequest());
-    const response = await axios(`/api/v1/rent/listing/${id}`);
+    const response = await axios(`https://homely-hub-api.vercel.app/api/v1/rent/listing/${id}`);
 
     if (!response) {
       throw new Error("could not fetch any property details");
