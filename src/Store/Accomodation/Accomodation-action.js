@@ -4,7 +4,7 @@ export const createAccomodation =(accomodationData)=>async(dispatch)=>{
     try {
         dispatch(accomodationActions.getAccomodationRequest());
         const response =await axios.post(
-            "https://homely-hub-api.vercel.app/api/v1/rent/user/newAccomodation",accomodationData)
+            "api/v1/rent/user/newAccomodation",accomodationData)
         if(!response){
             throw Error("Could not get any Accomodation")
         }
@@ -15,7 +15,7 @@ export const createAccomodation =(accomodationData)=>async(dispatch)=>{
 export const getAllAccomodation =( )=>async(dispatch)=>{
     try{
         dispatch(accomodationActions.getAccomodationRequest());
-        const {data}=await axios.get("https://homely-hub-api.vercel.app/api/v1/rent/user/myAccomodation");
+        const {data}=await axios.get("api/v1/rent/user/myAccomodation");
         const accom = data.data;
         dispatch(accomodationActions.getAccomodation(accom));
 
