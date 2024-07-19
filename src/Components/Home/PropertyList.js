@@ -4,13 +4,14 @@ import {useDispatch,useSelector} from "react-redux";
 import { getAllProperties } from '../../Store/Property/property-action';
 import { propertyAction } from '../../Store/Property/property-slice';
 
-import { Link } from 'react-router-dom';
 
+import { Link } from 'react-router-dom';
+const baseURL = process.env.REACT_APP_API_BASE_URL || '';
 const Card=({id,image , address, price, name})=>{
     return (
         <figure className='property'>
 
-            <Link to={`/propertylist/${id}`}>
+            <Link to={`${baseURL}/propertylist/${id}`}>
             
                 <img src={image} alt='Propertyimg' />
             
