@@ -41,15 +41,15 @@ const userSlice  = createSlice({
             state.loading = false;
         },
         getLogoutRequest(state) {
-            state. loading = true;
+            state.loading = true;
         },
         getLogout (state, action) {
             state.user = action.payload;
             state.isAuthenticated = false;
-            state. loading = false;
+            state.loading = false;
         },
         getPasswordRequest(state){ 
-            state. loading = true;
+            state.loading = true;
         },
         getPasswordSuccess(state,action){
             state.success =action.payload
