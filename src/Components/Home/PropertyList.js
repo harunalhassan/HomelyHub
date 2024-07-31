@@ -6,7 +6,7 @@ import { propertyAction } from '../../Store/Property/property-slice';
 
 
 import { Link } from 'react-router-dom';
-const baseURL = process.env.REACT_APP_API_BASE_URL || '';
+const baseURL = "https://homely-hub-seven.vercel.app";
 const Card=({id,image , address, price, name})=>{
     return (
         <figure className='property'>
