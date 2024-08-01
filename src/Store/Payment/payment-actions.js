@@ -2,7 +2,7 @@ import axios from "axios";
 import { CardNumberElement } from "@stripe/react-stripe-js";
 import { setPaymentDetails } from "./payment-slice";
 import { createBooking } from "../Booking/booking-action";
-
+const baseURL = process.env.REACT_APP_API_BASE_URL || '';
 
 export const processPayment = ({
   totalAmount,
@@ -28,7 +28,7 @@ export const processPayment = ({
     const cardNumberElement = elements.getElement(CardNumberElement);
     try {
       const response = await axios.post(
-        `/api/v1/rent/user/checkout-session`,
+        `${baseURL}/api/v1/rent/user/checkout-session`,
         {
           amount: totalAmount,
           currency: "inr",

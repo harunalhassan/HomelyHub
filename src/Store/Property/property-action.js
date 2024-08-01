@@ -1,6 +1,6 @@
 import axios from "axios";
 import { propertyAction } from "./property-slice";
-
+const baseURL = process.env.REACT_APP_API_BASE_URL || '';
 
 
 //action creater to fetch properties 
@@ -8,7 +8,7 @@ export const getAllProperties = () => async(dispatch,getState)=>{
     try{
         dispatch(propertyAction.getRequest());
         const {searchParams} = getState().properties;
-        const response = await axios.get(`/api/v1/rent/listing`, { 
+        const response = await axios.get(`${baseURL}/api/v1/rent/listing`, { 
             params: { ...searchParams },
             });
             if (!response) {
