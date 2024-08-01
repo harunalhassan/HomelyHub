@@ -1,6 +1,6 @@
 import axios from "axios";
 import { propertyAction } from "./property-slice";
-const baseURL = 'https://homely-hub-api.vercel.app/';
+const baseURL = process.env.REACT_APP_API_BASE_URL;
 
 
 //action creater to fetch properties 
