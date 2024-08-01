@@ -1,5 +1,6 @@
 import axios from "axios";
 import  {userActions} from "./user-slice";
+const baseURL = process.env.REACT_APP_API_BASE_URL;
 
 //handle user Signup
 
@@ -18,7 +19,7 @@ dispatch(userActions.getError(error.response.data.message));
 export const getLogIn  =  (user)=>async (dispatch)=>{
     try {
         dispatch(userActions.getLoginRequest());
-        const { data } = await axios.post("/api/v1/rent/user/login", user);
+        const { data } = await axios.post(`${baseURL}/api/v1/rent/user/login`, user);
         dispatch(userActions.getLoginDetails(data.user));
         } catch(error) {
         dispatch(userActions.getError(error.response.data.message));
