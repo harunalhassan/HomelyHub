@@ -6,12 +6,12 @@ import { propertyAction } from '../../Store/Property/property-slice';
 
 
 import { Link } from 'react-router-dom';
-const baseURL = process.env.REACT_APP_API_BASE_URL || '';
+
 const Card=({id,image , address, price, name})=>{
     return (
         <figure className='property'>
 
-            <Link to={`${baseURL}/propertylist/${id}`}>
+            <Link to={`/propertylist/${id}`}>
             
                 <img src={image} alt='Propertyimg' />
             
