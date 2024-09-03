@@ -2,7 +2,7 @@ import axios from "axios";
 import { CardNumberElement } from "@stripe/react-stripe-js";
 import { setPaymentDetails } from "./payment-slice";
 import { createBooking } from "../Booking/booking-action";
-const baseURL = process.env.REACT_APP_API_BASE_URL || '';
+const baseURL = 'https://homelyhub-backend-umq1.onrender.com';
 
 export const processPayment = ({
   totalAmount,
