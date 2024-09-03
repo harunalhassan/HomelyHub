@@ -1,6 +1,6 @@
 import axios  from "axios";
 import { accomodationActions } from "./Accomodation-slice";
-const baseURL = process.env.REACT_APP_API_BASE_URL;
+const baseURL = 'https://homelyhub-backend-umq1.onrender.com';
 export const createAccomodation =(accomodationData)=>async(dispatch)=>{
     try {
         dispatch(accomodationActions.getAccomodationRequest());
