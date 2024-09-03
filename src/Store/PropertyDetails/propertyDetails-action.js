@@ -1,6 +1,6 @@
 import axios from "axios";
 import { propertyDetailsAction } from "./propertyDetails-slice";
-const baseURL = process.env.REACT_APP_API_BASE_URL || '';
+const baseURL = 'https://homelyhub-backend-umq1.onrender.com';
 
 export const getPropertyDetails = (id) => async (dispatch) => {
   try {
