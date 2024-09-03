@@ -1,6 +1,6 @@
 import axios from "axios";
 import { propertyAction } from "./property-slice";
-const baseURL = process.env.REACT_APP_API_BASE_URL;
+const baseURL = 'https://homelyhub-backend-umq1.onrender.com';
 
 
 //action creater to fetch properties 
