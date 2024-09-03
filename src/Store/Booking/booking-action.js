@@ -5,7 +5,7 @@ setBookings,
 setBookingDetails,
 } from"./booking-slice";
 import { isAction } from "@reduxjs/toolkit";
-const baseURL = process.env.REACT_APP_API_BASE_URL;
+const baseURL = 'https://homelyhub-backend-umq1.onrender.com';
 export const createBooking= (bookingDate) => async (dispatch) =>{
 try {
 const response= await axios.post(
