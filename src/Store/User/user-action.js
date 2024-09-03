@@ -1,6 +1,6 @@
 import axios from "axios";
 import  {userActions} from "./user-slice";
-const baseURL = process.env.REACT_APP_API_BASE_URL;
+const baseURL = 'https://homelyhub-backend-umq1.onrender.com';
 
 //handle user Signup
 
@@ -8,7 +8,7 @@ export const getSignUp = (user) => async (dispatch) => {
 
 try {
 dispatch(userActions.getSignupRequest());
-const { data } = await axios.post("/api/v1/rent/user/signup", user);
+const { data } = await axios.post(`${baseURL}/api/v1/rent/user/signup`, user);
 dispatch(userActions.getSignupDetails(data.user));
 } catch (error) {
 dispatch(userActions.getError(error.response.data.message));
@@ -32,7 +32,7 @@ export const getLogIn  =  (user)=>async (dispatch)=>{
         export const currentUser = () => async (dispatch) => {
         try {
         dispatch(userActions.getCurrentUserRequest());
-        const { data } = await axios.get("/api/v1/rent/user/me");
+        const { data } = await axios.get(`${baseURL}/api/v1/rent/user/me`);
         dispatch(userActions.getCurrentUser(data.user));
         
         } catch (error) {
@@ -44,8 +44,8 @@ export const getLogIn  =  (user)=>async (dispatch)=>{
     export const updateUser = (updateUser) => async (dispatch) => {
         try {
         dispatch(userActions.getUpdateUserRequest());
-        await axios.patch("/api/v1/rent/user/updateMe",updateUser);
-        const { data } = await axios.get("/api/v1/rent/user/me");
+        await axios.patch(`${baseURL}/api/v1/rent/user/updateMe`,updateUser);
+        const { data } = await axios.get(`${baseURL}/api/v1/rent/user/me`);
         dispatch(userActions.getCurrentUser(data.user));
         
         } catch (error) {
@@ -56,7 +56,7 @@ export const getLogIn  =  (user)=>async (dispatch)=>{
     // to handle forgot password
     export const forgotPassword = (email) => async (dispatch) => {
         try {
-        await axios.post("/api/v1/rent/user/forgotPassword", { email });
+        await axios.post(`${baseURL}/api/v1/rent/user/forgotPassword`, { email });
         } catch (error) {
         dispatch(userActions.getError(error.response.data.message));
         }
@@ -65,7 +65,7 @@ export const getLogIn  =  (user)=>async (dispatch)=>{
 
      export const resetPassword = (repassword, token) => async(dispatch) => {
         try{
-            await axios.patch(`/api/v1/rent/user/resetPassword/${token}`, repassword);
+            await axios.patch(`${baseURL}/api/v1/rent/user/resetPassword/${token}`, repassword);
         }catch(error) {
     dispatch(userActions.getError(error.response.data.message));
     }
@@ -75,7 +75,7 @@ export const getLogIn  =  (user)=>async (dispatch)=>{
     export const updatePassword = (passwords)=> async(dispatch) =>{
     try{
     dispatch(userActions.getPasswordRequest());
-    await axios.patch("/api/v1/rent/user/updateMyPassword", passwords);
+    await axios.patch(`${baseURL}/api/v1/rent/user/updateMyPassword`, passwords);
     dispatch (userActions.getPasswordSuccess(true))
     }catch(error){
         dispatch(userActions.getError(error.response.data.message))
@@ -85,7 +85,7 @@ export const getLogIn  =  (user)=>async (dispatch)=>{
 //user Logout
 export const Logout =()=>async(dispatch)=>{
     try{
-        await axios.get("/api/v1/rent/user/logout");
+        await axios.get(`${baseURL}/api/v1/rent/user/logout`);
         dispatch(userActions.getLogout(null));
     }catch(error){
         dispatch(userActions.getError(error));
